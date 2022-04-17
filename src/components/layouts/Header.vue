@@ -19,4 +19,13 @@ import { RouterLink, RouterView } from "vue-router";
 header {
   line-height: 1.5;
 }
+
+nav {
+  margin-bottom: 1em;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 1em;
+}
 </style>

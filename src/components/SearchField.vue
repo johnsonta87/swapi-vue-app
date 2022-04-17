@@ -6,7 +6,11 @@ export default {
 </script>
 
 <template>
-  <input :value="name" @input="$emit('update:name', $event.target.value)" />
+  <input
+    :value="name"
+    @input="$emit('update:name', $event.target.value)"
+    placeholder="Search..."
+  />
 </template>
 
 <style>
