@@ -16,6 +16,7 @@ export default {
     return {
       character: null,
       characters: [],
+      name: null,
       errors: [],
     };
   },
@@ -34,8 +35,6 @@ export default {
       if (value) {
         this.character = value;
       }
-
-      return null;
     },
   },
 };
@@ -43,10 +42,11 @@ export default {
 
 <template>
   <main>
-    <SearchField />
+    <SearchField :name="name" />
 
     <div v-if="characters.results && characters.results.length">
       <CharactersList :characters="characters" @clicked="getCharacter" />
+
       <CharacterInfo v-if="character" :character="character" />
     </div>
     <Loading v-else />

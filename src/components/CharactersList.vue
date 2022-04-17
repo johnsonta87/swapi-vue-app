@@ -20,11 +20,7 @@ export default {
   <div>
     <ul class="characters-list">
       <li :key="character.name" v-for="character of characters.results">
-        <button
-          type="button"
-          @click="onClickButton(character)"
-          :value="character"
-        >
+        <button type="button" @click="onClickButton(character)">
           {{ character.name }}
         </button>
       </li>

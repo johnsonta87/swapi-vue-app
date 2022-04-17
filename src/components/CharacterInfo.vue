@@ -10,17 +10,23 @@ export default {
 </script>
 
 <template>
-  <h2>Information</h2>
+  <h2>Character Details</h2>
 
   <div v-if="character && character">
     <h3>{{ this.character.name }}</h3>
 
     <ul>
-      <InfoListItem>Born {{ this.character.birth_year }}</InfoListItem>
-      <InfoListItem>Homeworld</InfoListItem>
-      <InfoListItem>Hair Color {{ this.character.hair_color }}</InfoListItem>
-      <InfoListItem>Skin Color {{ this.character.skin_color }}</InfoListItem>
-      <InfoListItem>Height {{ this.character.height }} cm</InfoListItem>
+      <InfoListItem title="Born">{{ this.character.birth_year }}</InfoListItem>
+      <InfoListItem title="Homeworld"></InfoListItem>
+      <InfoListItem title="Hair Color">
+        {{ this.character.hair_color }}</InfoListItem
+      >
+      <InfoListItem title="Skin Color">
+        {{ this.character.skin_color }}</InfoListItem
+      >
+      <InfoListItem title="Height">
+        {{ this.character.height }} cm</InfoListItem
+      >
     </ul>
   </div>
 
