@@ -39,7 +39,7 @@ export default {
   <h1>Planets</h1>
 
   <div v-if="planets.results && planets.results.length">
-    <PlanetInfo :planets="planets" />
+    <PlanetInfo :planets="planets" @click="getPlanet" />
   </div>
   <LoadingComponent v-else />
 </template>
