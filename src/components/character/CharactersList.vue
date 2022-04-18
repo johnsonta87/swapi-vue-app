@@ -1,6 +1,6 @@
 <script>
-import ErrorsMessage from "./errors/ErrorsMessage.vue";
-import { store } from "../stores/store.js";
+import ErrorsMessage from "../errors/ErrorsMessage.vue";
+import { store } from "../../stores/store.js";
 
 export default {
   components: {

@@ -32,4 +32,19 @@ button {
 strong {
   font-weight: 700;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  margin: 0.5em auto;
+}
+
+.item {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 1em 2em;
+  margin-bottom: 1.5em;
+}
 </style>

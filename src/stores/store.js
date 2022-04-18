@@ -5,4 +5,9 @@ export const store = reactive({
   mutateCharacter(data) {
     this.character = data;
   },
+
+  planet: null,
+  mutatePlanet(data) {
+    this.planet = data;
+  },
 });

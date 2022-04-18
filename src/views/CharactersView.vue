@@ -1,8 +1,8 @@
 <script>
 import axios from "axios";
-import CharactersList from "@/components/CharactersList.vue";
+import CharactersList from "../components/character/CharactersList.vue";
 import SearchField from "../components/SearchField.vue";
-import CharacterInfo from "../components/CharacterInfo.vue";
+import CharacterInfo from "../components/character/CharacterInfo.vue";
 import LoadingComponent from "../components/loading/LoadingComponent.vue";
 
 export default {
