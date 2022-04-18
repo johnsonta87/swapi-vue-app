@@ -4,7 +4,6 @@ import DashboardPanel from "@/components/DashboardPanel.vue";
 
 <template>
   <main>
-    <img src="logo.png" class="lazy" alt="" />
     <DashboardPanel />
   </main>
 </template>
