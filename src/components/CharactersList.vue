@@ -1,15 +1,21 @@
 <script>
-import Errors from "./errors/Errors.vue";
+import ErrorsMessage from "./errors/ErrorsMessage.vue";
+import { store } from "../stores/store.js";
 
 export default {
   components: {
-    Errors,
+    ErrorsMessage,
   },
   props: ["characters", "errors"],
+  data: () => ({
+    store,
+  }),
   methods: {
     onClickButton(character) {
       if (character) {
         this.$emit("clicked", character);
+
+        store.mutateCharacter(character);
       }
     },
   },
@@ -19,14 +25,14 @@ export default {
 <template>
   <div>
     <ul class="characters-list">
-      <li :key="character.name" v-for="character of characters.results">
+      <li :key="character.name" v-for="character in characters.results">
         <button type="button" @click="onClickButton(character)">
           {{ character.name }}
         </button>
       </li>
     </ul>
 
-    <Errors v-if="errors && errors.length" errors="{errors}" />
+    <ErrorsMessage v-if="errors && errors.length" errors="{errors}" />
   </div>
 </template>
 

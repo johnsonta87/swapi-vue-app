@@ -6,7 +6,7 @@ export default {
 
 <template>
   <ul>
-    <li v-for="error of errors">
+    <li :key="index" v-for="(error, index) in errors">
       {{ error.message }}
     </li>
   </ul>

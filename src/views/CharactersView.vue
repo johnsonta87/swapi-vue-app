@@ -3,14 +3,14 @@ import axios from "axios";
 import CharactersList from "@/components/CharactersList.vue";
 import SearchField from "../components/SearchField.vue";
 import CharacterInfo from "../components/CharacterInfo.vue";
-import Loading from "../components/loading/Loading.vue";
+import LoadingComponent from "../components/loading/LoadingComponent.vue";
 
 export default {
   components: {
     CharactersList,
     SearchField,
     CharacterInfo,
-    Loading,
+    LoadingComponent,
   },
   data() {
     return {
@@ -49,6 +49,6 @@ export default {
 
       <CharacterInfo v-if="character" :character="character" />
     </div>
-    <Loading v-else />
+    <LoadingComponent v-else />
   </main>
 </template>

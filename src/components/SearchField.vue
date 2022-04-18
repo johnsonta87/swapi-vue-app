@@ -1,11 +1,14 @@
 <script>
 import axios from "axios";
 import { debounce } from "lodash";
+import { store } from "../stores/store.js";
 
 export default {
   props: ["name"],
   data: () => ({
     keyword: "",
+    hasError: false,
+    store,
   }),
   created() {
     this.debounceName = debounce(this.searchName, 1000);
@@ -19,10 +22,11 @@ export default {
           },
         })
         .then((response) => {
-          console.log(response.data.results);
+          store.mutateCharacter(response.data.results);
         })
         .catch((e) => {
           console.log(e);
+          this.hasError = true;
         });
     },
   },
@@ -36,11 +40,17 @@ export default {
 </script>
 
 <template>
-  <input v-model="keyword" placeholder="Enter name" />
-  <button @click.prevent="searchName">Search</button>
+  <div class="search" :class="{ 'text-danger': hasError }">
+    <input v-model="keyword" placeholder="Enter name" />
+    <button @click.prevent="searchName">Search</button>
+  </div>
 </template>
 
 <style>
+.search {
+  margin-bottom: 2em;
+}
+
 input {
   width: 100%;
   padding: 0.5em;

@@ -1,34 +1,50 @@
 <script>
-import axios from "axios";
-import Loading from "./loading/Loading.vue";
-import InfoListItem from "./InfoListItem.vue";
+import LoadingComponent from "./loading/LoadingComponent.vue";
+import { store } from "../stores/store.js";
+import CharacterInfoContent from "./CharacterInfoContent.vue";
 
 export default {
-  components: { Loading, InfoListItem },
+  components: { LoadingComponent, CharacterInfoContent },
   props: ["character"],
+  data: () => ({
+    store,
+  }),
 };
 </script>
 
 <template>
-  <h2>Character Details</h2>
+  <div class="character-list-container">
+    <h2>Character Details</h2>
 
-  <div v-if="character && character">
-    <h3>{{ this.character.name }}</h3>
+    <div v-if="store.character && store.character.length">
+      <div
+        class="character-info-wrapper"
+        v-for="character in store.character"
+        :key="character.name"
+      >
+        <CharacterInfoContent :character="character" />
+      </div>
+    </div>
 
-    <ul>
-      <InfoListItem title="Born">{{ this.character.birth_year }}</InfoListItem>
-      <InfoListItem title="Homeworld"></InfoListItem>
-      <InfoListItem title="Hair Color">
-        {{ this.character.hair_color }}</InfoListItem
-      >
-      <InfoListItem title="Skin Color">
-        {{ this.character.skin_color }}</InfoListItem
-      >
-      <InfoListItem title="Height">
-        {{ this.character.height }} cm</InfoListItem
-      >
-    </ul>
+    <div v-else-if="store.character && store.character.name">
+      <div class="character-info-wrapper">
+        <CharacterInfoContent :character="character" />
+      </div>
+    </div>
+
+    <LoadingComponent v-else />
   </div>
-
-  <Loading v-else />
 </template>
+
+<style>
+.character-list-container {
+  margin: 2em auto;
+}
+
+.character-info-wrapper {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 1em 2em;
+  margin-bottom: 1.5em;
+}
+</style>
